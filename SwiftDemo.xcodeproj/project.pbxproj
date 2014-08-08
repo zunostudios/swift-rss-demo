@@ -13,6 +13,7 @@
 		256FC0351995418D0077A87E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 256FC0331995418D0077A87E /* Main.storyboard */; };
 		256FC0371995418D0077A87E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 256FC0361995418D0077A87E /* Images.xcassets */; };
 		256FC0431995418D0077A87E /* SwiftDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256FC0421995418D0077A87E /* SwiftDemoTests.swift */; };
+		256FC04E199542460077A87E /* RSSParserDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256FC04D199542460077A87E /* RSSParserDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		256FC03C1995418D0077A87E /* SwiftDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		256FC0411995418D0077A87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		256FC0421995418D0077A87E /* SwiftDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDemoTests.swift; sourceTree = "<group>"; };
+		256FC04D199542460077A87E /* RSSParserDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSParserDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		256FC02A1995418D0077A87E /* SwiftDemo */ = {
 			isa = PBXGroup;
 			children = (
+				256FC04C199542290077A87E /* Utilities */,
 				256FC02D1995418D0077A87E /* AppDelegate.swift */,
 				256FC02F1995418D0077A87E /* MasterViewController.swift */,
 				256FC0311995418D0077A87E /* DetailViewController.swift */,
@@ -110,6 +113,14 @@
 				256FC0411995418D0077A87E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		256FC04C199542290077A87E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				256FC04D199542460077A87E /* RSSParserDelegate.swift */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +224,7 @@
 			files = (
 				256FC0321995418D0077A87E /* DetailViewController.swift in Sources */,
 				256FC0301995418D0077A87E /* MasterViewController.swift in Sources */,
+				256FC04E199542460077A87E /* RSSParserDelegate.swift in Sources */,
 				256FC02E1995418D0077A87E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
