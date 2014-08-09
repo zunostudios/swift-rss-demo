@@ -1,11 +1,3 @@
-//
-//  RSSParserDelegate.swift
-//  SwiftDemo
-//
-//  Created by David Nuon on 8/8/14.
-//  Copyright (c) 2014 David Nuon. All rights reserved.
-//
-
 import Foundation
 
 class RSSParserDelegate : NSObject, NSXMLParserDelegate {
@@ -50,30 +42,18 @@ class RSSParserDelegate : NSObject, NSXMLParserDelegate {
     }
     
     func parser(parser: NSXMLParser!, foundCharacters string: String!) {
-        var current:BlogPost? = posts.last;
-        if current == nil { return } ;
-        
-        switch (mode) {
-        case .TITLE:
-            current?.title += string;
-            break;
+        if let current = posts.last {
+            var current:BlogPost? = posts.last;
             
-        case .SUMMARY:
-            current?.summary += string;
-            break;
-            
-        case .AUTHOR:
-            current?.author += string;
-            break;
-            
-        case .DATE:
-            current?.date += string;
-            break;
-        default:
-            break;
+            switch (mode) {
+                case   .TITLE: current?.title += string;
+                case .SUMMARY: current?.summary += string;
+                case  .AUTHOR: current?.author += string;
+                case    .DATE: current?.date += string;
+                default: break;
+            }
         }
     }
-    
     
     func parser(parser: NSXMLParser!, didEndElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!) {
         self.mode = .INACTIVE;

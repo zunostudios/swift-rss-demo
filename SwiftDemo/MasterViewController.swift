@@ -1,11 +1,3 @@
-//
-//  MasterViewController.swift
-//  SwiftDemo
-//
-//  Created by David Nuon on 8/8/14.
-//  Copyright (c) 2014 David Nuon. All rights reserved.
-//
-
 import UIKit
 
 class MasterViewController: UITableViewController {
@@ -35,8 +27,6 @@ class MasterViewController: UITableViewController {
                 }
                 self.tableView.reloadData()
             })
-            
-            println("Reloading");
         }
         
         task.resume();
@@ -44,7 +34,6 @@ class MasterViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Segues
@@ -52,7 +41,7 @@ class MasterViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             let indexPath = self.tableView.indexPathForSelectedRow()
-            let object = objects[indexPath.row]
+            let object = objects[indexPath.row] as RSSParserDelegate.BlogPost;
             (segue.destinationViewController as DetailViewController).detailItem = object
         }
     }
@@ -68,7 +57,8 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "MyTestCell")
+
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "postCell")
         let blogPost = objects[indexPath.row];
         cell.textLabel.text = blogPost.title
         cell.detailTextLabel.text = blogPost.author
@@ -76,10 +66,11 @@ class MasterViewController: UITableViewController {
         return cell
     }
 
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+        performSegueWithIdentifier("showDetail", sender:self);
     }
+   
 
 
 }
