@@ -1,4 +1,4 @@
-swift-rss-demo
+Swift RSS Demo
 ==============
 
 Simple RSS reader for iOS in Swift.
